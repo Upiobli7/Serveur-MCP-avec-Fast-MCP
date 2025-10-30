@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: servermcp-hexadone
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: fastmcp
+  template:
+    metadata:
+      labels:
+        app: fastmcp
+    spec:
+      containers:
+      - name: fastmcp
+        image: upiobli7/fastmcp-server:latest
+        ports:
+        - containerPort: 8000
